@@ -1,0 +1,15 @@
+{% extends "TwitterBootstrapBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Создание категории</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('katg') }}">
+            Вернуться к списку
+        </a>
+    </li>
+</ul>
+{% endblock %}

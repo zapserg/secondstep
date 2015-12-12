@@ -1,0 +1,5 @@
+acme_second_baz:
+    resource: "@AcmeSecondBazBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

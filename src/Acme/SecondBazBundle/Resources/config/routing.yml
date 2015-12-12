@@ -1,0 +1,67 @@
+all_tovar_show:
+   path: /
+   defaults: { _controller: AcmeSecondBazBundle:Default:showTovar }
+
+kategor_show:
+   path: /kategor
+   defaults: { _controller: AcmeSecondBazBundle:Default:showKategor }
+
+tovar_show:
+   path: /tovar/{idtovar}
+   defaults: { _controller: AcmeSecondBazBundle:Default:showProduct }  
+
+tov:
+    path:     /tov
+    defaults: { _controller: AcmeSecondBazBundle:Tovar:index }
+
+tov_show:
+    path:     /{id}/show
+    defaults: { _controller: AcmeSecondBazBundle:Tovar:show }
+
+tov_edit:
+    path:     /{id}/edit
+    defaults: { _controller: AcmeSecondBazBundle:Tovar:edit }
+
+tov_new:
+    path:     /new
+    defaults: { _controller: AcmeSecondBazBundle:Tovar:new }
+
+tov_delete:
+    path:     /{id}/delete
+    defaults: { _controller: AcmeSecondBazBundle:Tovar:delete }
+
+tov_update:
+    path:     /{id}/update
+    defaults: { _controller: AcmeSecondBazBundle:Tovar:update }
+
+tov_create:
+    path:     /create
+    defaults: { _controller: AcmeSecondBazBundle:Tovar:create } 
+
+katg:
+    path:     /katg
+    defaults: { _controller: AcmeSecondBazBundle:Kategor:index }
+
+katg_show:
+    path:     /{id}/show_k
+    defaults: { _controller: AcmeSecondBazBundle:Kategor:show }
+
+katg_edit:
+    path:     /{id}/edit_k
+    defaults: { _controller: AcmeSecondBazBundle:Kategor:edit }
+
+katg_new:
+    path:     /new_k
+    defaults: { _controller: AcmeSecondBazBundle:Kategor:new }
+
+katg_delete:
+    path:     /{id}/delete_k
+    defaults: { _controller: AcmeSecondBazBundle:Kategor:delete }
+
+katg_update:
+    path:     /{id}/update_k
+    defaults: { _controller: AcmeSecondBazBundle:Kategor:update }
+
+katg_create:
+    path:     /create_k
+    defaults: { _controller: AcmeSecondBazBundle:Kategor:create }   

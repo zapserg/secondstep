@@ -1,0 +1,15 @@
+{% extends "TwitterBootstrapBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Добавить товар</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tov') }}">
+            Веруться к списку
+        </a>
+    </li>
+</ul>
+{% endblock %}

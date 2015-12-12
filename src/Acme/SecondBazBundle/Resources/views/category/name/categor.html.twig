@@ -1,0 +1,5 @@
+    {% block kategor %} 
+        {% for article in articles %}
+            <a href="{{path('tovar_show',{'idtovar':article.id}) }}"> {{ article.name }} </a><br>
+        {% endfor %}      
+    {% endblock %}

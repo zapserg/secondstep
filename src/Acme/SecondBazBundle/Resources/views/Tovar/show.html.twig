@@ -1,0 +1,37 @@
+{% extends "TwitterBootstrapBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Товар</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>№</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Название</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tov') }}">
+            Веруться к списку
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('tov_new') }}">
+                Создать новый товар
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('tov_edit', { 'id': entity.id }) }}">
+            Редактировать
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

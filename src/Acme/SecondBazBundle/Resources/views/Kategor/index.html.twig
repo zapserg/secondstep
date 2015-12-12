@@ -1,0 +1,50 @@
+{% extends "TwitterBootstrapBundle::layout.html.twig" %}
+
+{% block body -%}
+
+        <a href="{{ path('all_tovar_show') }}">
+            <h3>Главная страница</h3>
+        </a>
+    <li>
+        <a href="{{ path('tov') }}">
+            Перейти к редактированию товара
+        </a>
+    </li>
+
+    <h1>Список категорий</h1>
+    <ul>
+        <li>
+            <a href="{{ path('katg_new') }}">
+                Создать новую категорию
+            </a>
+        </li>
+    </ul>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Название категории</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('katg_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('katg_show', { 'id': entity.id }) }}">показать</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('katg_edit', { 'id': entity.id }) }}">редактировать</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

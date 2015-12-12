@@ -1,0 +1,38 @@
+Acme\SecondBazBundle\Entity\Tovar:
+    type: entity
+    table: tovar
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+    manyToMany:
+        idkategor:
+            targetEntity: Kategor
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: idtovar
+            joinTable:
+                name: svaz
+                joinColumns:
+                    -
+                        name: idTovar
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: idKategor
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

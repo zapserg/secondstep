@@ -1,0 +1,55 @@
+<?php
+
+namespace Acme\SecondBazBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tovar
+ *
+ * @ORM\Table(name="tovar")
+ * @ORM\Entity
+ */
+class Tovar
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Acme\SecondBazBundle\Entity\Kategor", inversedBy="idtovar")
+     * @ORM\JoinTable(name="svaz",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idTovar", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="idKategor", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $idkategor;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idkategor = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+
