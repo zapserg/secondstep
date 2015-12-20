@@ -18,7 +18,18 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Acme\SecondBazBundle\AcmeSecondBazBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

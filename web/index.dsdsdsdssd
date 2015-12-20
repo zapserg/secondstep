@@ -1,0 +1,165 @@
+<?php
+
+ $word ="sum summus  mus";
+echo $word;
+echo "<br><br>"; 
+ $mas_w = str_split($word);
+
+  $sraw_mas =array_intersect_assoc($mas_w,array_reverse($mas_w));
+
+  echo implode($sraw_mas); 
+ 
+
+echo "<br><br><br><br><br>";  
+
+
+
+
+  $limits = array(1,5,9,15);
+    $value = 7;
+    $out = -1;
+    foreach($limits as $key=>$limit){
+            if($limit>=$value){
+                    $out = $key-1;
+                    break;
+            }
+    }
+    if($out==-1){
+            echo "Не входит в пределы";
+    }
+    else{
+            echo "Значение $out";
+    }
+
+
+echo "<br><br><br><br><br>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$locale_info = localeconv();
+    print_r($locale_info);
+
+
+$input = 'carrrot';
+
+// массив сверяемых слов
+$words  = array('apple','pineapple','banana','orange',
+                'radish','carrot','pea','bean','potato');
+
+// кратчайшее расстояние пока еще не найдено
+$shortest = -1;
+
+// проходим по словам для нахождения самого близкого варианта
+foreach ($words as $word) {
+
+    // вычисляем расстояние между входным словом и текущим
+    $lev = levenshtein($input, $word);
+
+    // проверяем полное совпадение
+    if ($lev == 0) {
+
+        // это ближайшее слово (точное совпадение)
+        $closest = $word;
+        $shortest = 0;
+
+        // выходим из цикла - мы нашли точное совпадение
+        break;
+    }
+
+    // если это расстояние меньше следующего наименьшего расстояния
+    // ИЛИ если следующее самое короткое слово еще не было найдено
+    if ($lev <= $shortest || $shortest < 0) {
+        // set the closest match, and shortest distance
+        $closest  = $word;
+        $shortest = $lev;
+    }
+}
+
+echo "Вы ввели: $input\n";
+if ($shortest == 0) {
+    echo "Найдено точное совпадение: $closest\n";
+} else {
+    echo "Вы не имели в виду: $closest?\n";
+}
+
+
+
+$assa= 'sadasas';
+
+$str = <<<EOD
+Ïðèìåð ñòðîêè,
+îõâàòûâàþùåé íåñêîëüêî{$assa} ñòðî÷åê,
+ñ èñïîëüçîâàíèåì heredoc-ñèíòàêñèñà.
+EOD;
+
+echo "<br>";
+setlocale(LC_MONETARY, 'ua_UA');
+$number= 12333.2424;
+echo "dengi=".money_format('%.2n', $number);
+echo "<br>";
+echo $str;
+echo "<br>";
+
+var_dump(count_chars($str, 1));
+
+echo "<br> implode =";
+echo implode("|",count_chars($str, 1));
+echo "<br>";
+foreach (count_chars($str, 1) as $i => $val) {
+   echo "\"" , chr($i) , "\" âñòðå÷àåòñÿ â ñòðîêå $val ðàç(à).\n<br>";
+}
+echo "<br>";
+//echo strspn("You get certified", "aeiou",1)
+
+/*
+$a='a';
+$b='b';
+//echo $c=($a++*++$b);
+
+
+echo isset($c)?$a.$b.$c :($c='c').'d';
+
+echo 1^2;
+*/
+echo "<br>";
+//$a = array(2,    "a",  "11", 2);
+$a = array('_!',"dev",0);
+$b = array(2,    "11", "a",  2);
+sort($a);
+var_dump($a);
+sort($b);
+echo "<br>";
+var_dump($b); 
+
+var_dump('123' == '       123'); // true
+var_dump('1e3' == '1000'); // true
+var_dump('+74951112233' == '74951112233'); // true
+var_dump('00000020' == '0000000000000000020'); // true
+var_dump('0X1D' == '29E0'); // true
+var_dump('0xafebac' == '11529132'); // true
+var_dump('0xafebac' == '0XAFEBAC'); // true
+var_dump('0xeb' == '+235e-0'); // true
+var_dump('0.235' == '+.235'); // true
+var_dump('0.2e-10' == '2.0E-11'); // true
+var_dump('61529519452809720693702583126814' == '61529519452809720000000000000000'); // true in php < 5.4.4
+
+
+
+?>

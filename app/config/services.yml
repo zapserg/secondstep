@@ -4,6 +4,23 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    sonata.kategor.admin.post:
+        class: Acme\SecondBazBundle\Admin\KategorAdmin
+        arguments: [~, Acme\SecondBazBundle\Entity\Kategor, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "ТОВАРЫ",label: Категория }
+        calls:
+            - [ setTranslationDomain, [AcmeSecondBazBundle]]
+
+    sonata.tovar.admin.post:
+        class: Acme\SecondBazBundle\Admin\TovarAdmin
+        arguments: [~, Acme\SecondBazBundle\Entity\Tovar, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "ТОВАРЫ",label: Товар } 
+        calls:
+            - [ setTranslationDomain, [AcmeSecondBazBundle]]
+
+    gregwar.registration:
+        class: Acme\SecondBazBundle\Form\UserType
+        tags:
+            - { name: form.type, alias: gregwar_user_registration }
